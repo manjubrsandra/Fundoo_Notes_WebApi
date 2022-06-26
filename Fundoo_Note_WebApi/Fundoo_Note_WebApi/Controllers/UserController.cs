@@ -25,6 +25,7 @@ namespace Fundoo_Note_WebApi.Controllers
         public IActionResult AddUser(UserPostModel userPostModel)
         {
             try
+            
             {
                 this.userBL.AddUser(userPostModel);
                 var user = fundooContext.Users.FirstOrDefault(u => u.Email == userPostModel.Email);
