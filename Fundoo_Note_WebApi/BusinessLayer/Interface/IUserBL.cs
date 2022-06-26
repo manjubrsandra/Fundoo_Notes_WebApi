@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace RepositoryLayer.Inerfaces
+namespace BusinessLayer.Interface
 {
-    public interface IUserRL
+    public interface IUserBL
     {
         public void AddUser(UserPostModel userPostModel);
     }

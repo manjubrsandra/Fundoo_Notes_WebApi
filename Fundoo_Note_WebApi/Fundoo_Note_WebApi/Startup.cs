@@ -1,3 +1,5 @@
+using BusinessLayer.Interface;
+using BusinessLayer.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using RepositoryLayer.Inerfaces;
 using RepositoryLayer.Services;
 using System;
 using System.Collections.Generic;
@@ -30,6 +33,8 @@ namespace Fundoo_Note_WebApi
             services.AddControllers();
             services.AddDbContext<FundooContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("Fundoo_Note")));
+            services.AddTransient<IUserRL, UserRL>();
+            services.AddTransient<IUserBL, UserBL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
